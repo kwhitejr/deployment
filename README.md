@@ -9,13 +9,19 @@ Obtain a [Digital Ocean](https://www.digitalocean.com/) account.
 Create a Digital Ocean droplet.
 
 For a basic site, choose a $5 droplet and a datacenter closest to you. Under add SSH keys, click 'New SSH Key'. Acquire your key:
-```cd ~/.ssh```
+```
+cd ~/.ssh
+```
 
 Check local files
-```ls ```
+```
+ls
+```
 
 Copy ssh key to clipboard:
-```cat id_rsa.pub | pbcopy```
+```
+cat id_rsa.pub | pbcopy
+```
 Read the file and pipe it to `pbcopy`, which is the clipboard.
 
 Name your ssh key.
@@ -60,6 +66,13 @@ Log out of `root` user and restart as `admin`.
 exit
 SSH admin@999.999.999.999
 ```
+
+Create back-up password for user `root`. You will first need to enter admin's password.
+```
+sudo passwd root
+```
+Use another passphrase. Like a boss.
+
 
 
 
