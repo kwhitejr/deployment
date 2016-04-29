@@ -27,25 +27,39 @@ Copy your IP address from Digital Ocean.
 
 ###### Create Admin User
 Never run as root! Except the first time, so that we can create an 'admin' user. In the terminal, access the 'root' user. SSH into the droplet with the following command:
-```SSH root@999.999.999.999``` 
+```
+SSH root@999.999.999.999
+``` 
 
 In order to create 'admin' user:
-```useradd -m -s /bin/bash -g users -G sudo admin```
+```
+useradd -m -s /bin/bash -g users -G sudo admin
+```
 Set login shell of new account set to `/bin/bash`, set primary group of new account to `users`, and added 'admin' user to supplementary group `sudo`.
 
 Set password for 'admin':
-
-```passwd admin```
-
+```
+passwd admin
+```
 Recommendation: use a passphrase, don't forget it.
 
 Check your ssh key is on the server:
-
-```cd ~/.ssh```
-
-```cat authorized_keys```
-
+```
+cd ~/.ssh
+cat authorized_keys
+```
 Your ssh key should be logged in the terminal.
+
+Change (recursively) file permissions on folder `~/.ssh` in order to secure that directory. Set the owner to `admin` and the group to `root`:
+```
+chown -R admin:root ~/.ssh
+```
+
+Log out of `root` user and restart as `admin`.
+```
+exit
+SSH admin@999.999.999.999
+```
 
 
 
