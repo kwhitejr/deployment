@@ -34,13 +34,20 @@ In order to create 'admin' user:
 Set login shell of new account set to `/bin/bash`, set primary group of new account to `users`, and added 'admin' user to supplementary group `sudo`.
 
 Set password for 'admin':
+
 ```passwd admin```
+
 Recommendation: use a passphrase, don't forget it.
 
 Check your ssh key is on the server:
+
 ```cd ~/.ssh```
+
 ```cat authorized_keys```
+
 Your ssh key should be logged in the terminal.
+
+
 
 ###### Install Web Server (nginx)
 
