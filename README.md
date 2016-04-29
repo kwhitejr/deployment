@@ -178,6 +178,43 @@ Check the link.
 ls -lah /srv
 ```
 
+## Put Your Project On the World Wide Web
 
+From the rootiest root direectory:
+```
+cd etc/nginx/sites-available
+```
 
+Create a server conf file:
+```
+project-name.conf
+```
 
+Copy the following code into `project-name.conf`.
+```
+sudo vi project-name.conf
+```
+Then copy (use previously acquired vi super powers):
+```
+server {
+  listen 80;
+  server_name 999.999.999.999;
+  root /srv/project-name;
+  access_log /var/log/nginx/node-app.access.log;
+  error_log /var/log/nginx/node-app.error.log;
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}
+```
+Check your conf file to make sure everything went smoothly.
+
+Create sym-link from `sites-available` to `sites-enabled`.
+```
+sudo ln -s /etc/nginx/sites-available/project-name.conf /etc/nginx/sites-enabled/project-name.conf
+```
+
+Check your sym-link:
+```
+ls -lah ../sites-enabled
+```
