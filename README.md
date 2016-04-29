@@ -106,11 +106,55 @@ cat ~/.ssh/authorized_keys
 ```
 Nooice! (I hope...)
 <br>
+<br>
+Set the folder permissions on `~/.ssh` to 700. 700 means read, write and execute for the owner of the file/folder only (zeroes for group and others). Each number represents... Just remember "UGO": user, group, other.
+```
+chmod 700 ~/.ssh
+```
+Check the permissions. From the directory containing `.ssh`:
+```
+ls -lah
+```
 
+Exit and check whether you can log in without a password (super haxxor skillz):
+```
+exit
+SSH admin@999.999.999.999
+```
 
 ###### Install Web Server (nginx)
+Update server:
+```
+sudo apt-get update
+```
+
+Install nginx:
+```
+sudo apt-get install nginx
+```
+Check whether you done did it correctly by opening your IP address in browser.
 
 
 ###### Install Run-time Environment (node.js)
 
+Install node.js. This is your server's run-time environment.
+```
+sudo apt-get install nodejs
+```
+
+Install npm
+```
+sudo apt-get install npm
+```
+
+Install nvm (node verson manager) for multiple versions of node or n if you have a single version of node on the server. Let's use n for now. Then get the latest stable version of node.
+```
+sudo npm i -g n
+sudo n stable
+```
+
+Cool. Make an `apps` folder where you can clone projects to.
+```
+mkdir apps
+```
 
