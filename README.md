@@ -34,7 +34,6 @@ Choose a hostname (no spaces). Make it readily identifiable.
 
 Copy your IP address from Digital Ocean.
 
-###### Create Admin User
 Never run as root! Except the first time, so that we can create an 'admin' user. In the terminal, access the 'root' user. SSH into the droplet with the following command:
 ```
 SSH root@999.999.999.999
@@ -122,7 +121,7 @@ exit
 SSH admin@999.999.999.999
 ```
 
-###### Install Web Server (nginx)
+## Install Web Server (nginx)
 Update server:
 ```
 sudo apt-get update
@@ -135,7 +134,7 @@ sudo apt-get install nginx
 Check whether you done did it correctly by opening your IP address in browser.
 
 
-###### Install Run-time Environment (node.js)
+## Install Run-time Environment (node.js)
 
 Install node.js. This is your server's run-time environment.
 ```
@@ -153,8 +152,32 @@ sudo npm i -g n
 sudo n stable
 ```
 
-Cool. Make an `apps` folder where you can clone projects to.
+Install git-core
+```
+sudo apt-get install git-core
+```
+
+## Add Your Project
+Cool. From the admin's root directory (`cd ~`), make an `apps` folder to where you can clone projects.
 ```
 mkdir apps
 ```
+
+Clone down your repo:
+```
+git clone https-key-here
+```
+
+Create a symbolic link from "project-name" to "repo-name".
+```
+sudo ln -s ~/apps/repo-name/ /srv/project-name
+```
+
+Check the link.
+```
+ls -lah /srv
+```
+
+
+
 
