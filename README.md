@@ -17,14 +17,14 @@ Check local files
 ```
 ls
 ```
-
+<br>
 
 Copy ssh key to clipboard:
 ```
 cat id_rsa.pub | pbcopy
 ```
 Read the file and pipe it to `pbcopy`, which is the clipboard.
-
+<br>
 
 Name your ssh key.
 Choose a hostname (no spaces). Make it readily identifiable.
@@ -38,21 +38,21 @@ Never run as root! Except the first time, so that we can create an 'admin' user.
 ```
 SSH root@999.999.999.999
 ``` 
-
+<br>
 
 In order to create 'admin' user:
 ```
 useradd -m -s /bin/bash -g users -G sudo admin
 ```
 Set login shell of new account set to `/bin/bash`, set primary group of new account to `users`, and added 'admin' user to supplementary group `sudo`.
-
+<br>
 
 Set password for 'admin':
 ```
 passwd admin
 ```
 Recommendation: use a passphrase, don't forget it.
-
+<br>
 
 Check your ssh key is on the server:
 ```
@@ -60,27 +60,27 @@ cd ~/.ssh
 cat authorized_keys
 ```
 Your ssh key should be logged in the terminal.
-
+<br>
 
 Change (recursively) file permissions on folder `~/.ssh` in order to secure that directory. Set the owner to `admin` and the group to `root`:
 ```
 chown -R admin:root ~/.ssh
 ```
-
+<br>
 
 Log out of `root` user and restart as `admin`.
 ```
 exit
 SSH admin@999.999.999.999
 ```
-
+<br>
 
 Create back-up password for user `root`. You will first need to enter admin's password.
 ```
 sudo passwd root
 ```
 Use another passphrase. Like a boss.
-
+<br>
 
 Look at your admin's `~/.ssh` folder:
 ```
@@ -96,12 +96,15 @@ The command `vi` opens your Virtual Inspector. Hopefully your ssh key is still s
 Cmd-V to paste.
 `esc` to exit Insert mode.
 `:wq` to write and quit.
-
+<br>
 
 Check whether your write-to-file worked:
 ```
 cat ~/.ssh/authorized_keys
 ```
+Nooice! (I hope...)
+<br>
+
 
 ###### Install Web Server (nginx)
 
