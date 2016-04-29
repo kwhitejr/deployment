@@ -18,11 +18,13 @@ Check local files
 ls
 ```
 
+
 Copy ssh key to clipboard:
 ```
 cat id_rsa.pub | pbcopy
 ```
 Read the file and pipe it to `pbcopy`, which is the clipboard.
+
 
 Name your ssh key.
 Choose a hostname (no spaces). Make it readily identifiable.
@@ -37,17 +39,20 @@ Never run as root! Except the first time, so that we can create an 'admin' user.
 SSH root@999.999.999.999
 ``` 
 
+
 In order to create 'admin' user:
 ```
 useradd -m -s /bin/bash -g users -G sudo admin
 ```
 Set login shell of new account set to `/bin/bash`, set primary group of new account to `users`, and added 'admin' user to supplementary group `sudo`.
 
+
 Set password for 'admin':
 ```
 passwd admin
 ```
 Recommendation: use a passphrase, don't forget it.
+
 
 Check your ssh key is on the server:
 ```
@@ -56,16 +61,19 @@ cat authorized_keys
 ```
 Your ssh key should be logged in the terminal.
 
+
 Change (recursively) file permissions on folder `~/.ssh` in order to secure that directory. Set the owner to `admin` and the group to `root`:
 ```
 chown -R admin:root ~/.ssh
 ```
+
 
 Log out of `root` user and restart as `admin`.
 ```
 exit
 SSH admin@999.999.999.999
 ```
+
 
 Create back-up password for user `root`. You will first need to enter admin's password.
 ```
@@ -74,7 +82,26 @@ sudo passwd root
 Use another passphrase. Like a boss.
 
 
+Look at your admin's `~/.ssh` folder:
+```
+ls -lah ~/.ssh
+```
+HA! You don't have one. Let's create it and put your ssh key in it.
+```
+mkdir ~/.ssh
+vi ~/.ssh/authorized_keys
+```
+The command `vi` opens your Virtual Inspector. Hopefully your ssh key is still saved to the clipboard! If not, open another terminal and copy it again. In order to copy into `authorized_keys` file, enter these commands:
+`i` for Insert mode.
+Cmd-V to paste.
+`esc` to exit Insert mode.
+`:wq` to write and quit.
 
+
+Check whether your write-to-file worked:
+```
+cat ~/.ssh/authorized_keys
+```
 
 ###### Install Web Server (nginx)
 
