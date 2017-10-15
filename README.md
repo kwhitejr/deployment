@@ -34,27 +34,27 @@ Choose a hostname (no spaces). Make it readily identifiable.
 
 Copy your IP address from Digital Ocean.
 
-Never run as root! Except the first time, so that we can create an 'admin' user. In the terminal, access the 'root' user. SSH into the droplet with the following command:
+Never run as root! Except the first time, so that we can create an 'admin' user. In the terminal, access the 'root' user. SSH into the droplet with the following command:  
 ```
 SSH root@999.999.999.999
-``` 
+```  
 <br>
 <br>
-In order to create 'admin' user:
+In order to create 'admin' user:  
 ```
 useradd -m -s /bin/bash -g users -G sudo admin
 ```
 Set login shell of new account set to `/bin/bash`, set primary group of new account to `users`, and added 'admin' user to supplementary group `sudo`.
 <br>
 <br>
-Set password for 'admin':
+Set password for 'admin':  
 ```
 passwd admin
 ```
 Recommendation: use a passphrase, don't forget it.
 <br>
 <br>
-Check your ssh key is on the server:
+Check your ssh key is on the server:  
 ```
 cd ~/.ssh
 cat authorized_keys
@@ -62,13 +62,13 @@ cat authorized_keys
 Your ssh key should be logged in the terminal.
 <br>
 <br>
-Change (recursively) file permissions on folder `~/.ssh` in order to secure that directory. Set the owner to `admin` and the group to `root`:
+Change (recursively) file permissions on folder `~/.ssh` in order to secure that directory. Set the owner to `admin` and the group to `root`:  
 ```
 chown -R admin:root ~/.ssh
 ```
 <br>
 <br>
-Log out of `root` user and restart as `admin`.
+Log out of `root` user and restart as `admin`.  
 ```
 exit
 SSH admin@999.999.999.999
