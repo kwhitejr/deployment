@@ -38,20 +38,12 @@ Never run as root! Except the first time, so that we can create an 'admin' user.
 ```
 SSH root@999.999.999.999
 ```  
-<br>
-In order to create 'admin' user:  
-```
-useradd -m -s /bin/bash -g users -G sudo admin
-```
+
+In order to create 'admin' user: `useradd -m -s /bin/bash -g users -G sudo admin`
 Set login shell of new account set to `/bin/bash`, set primary group of new account to `users`, and added 'admin' user to supplementary group `sudo`.
-<br>
-<br>
-Set password for 'admin':  
-```
-passwd admin
-```
+
+Set password for 'admin': `passwd admin`
 Recommendation: use a passphrase, don't forget it.
-<br>
 <br>
 Check your ssh key is on the server:  
 ```
