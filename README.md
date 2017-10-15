@@ -39,7 +39,6 @@ Never run as root! Except the first time, so that we can create an 'admin' user.
 SSH root@999.999.999.999
 ```  
 <br>
-<br>
 In order to create 'admin' user:  
 ```
 useradd -m -s /bin/bash -g users -G sudo admin
